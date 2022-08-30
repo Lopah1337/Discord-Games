@@ -31,7 +31,18 @@ class AkiView(BaseView):
         self.game = game
 
         for label, style in self.OPTIONS.items():
-            self.add_item(AkiButton(label=label, style=style))
+            if label == "Yes":
+              self.add_item(AkiButton(label=label, style=style, emoji="<:tick3:990871127301709854>"))
+            elif label == "No":
+              self.add_item(AkiButton(label=label, style=style, emoji="<:error2:990871060255744061>"))
+            elif label == "I Dont Know":
+              self.add_item(AkiButton(label=label, style=style, emoji="<:zzexclam:1013831125178777630>"))
+            elif label == "Probably":
+              self.add_item(AkiButton(label=label, style=style, emoji="🤔"))
+            elif label == "Probably":
+              self.add_item(AkiButton(label=label, style=style, emoji="🙁"))
+
+
 
         if self.game.back_button:
             delete = AkiButton(label="Back", style=discord.ButtonStyle.red, emoji="🔙", row=1)
