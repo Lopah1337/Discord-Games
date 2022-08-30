@@ -36,11 +36,11 @@ class Akinator:
 
     BAR: ClassVar[str] = "██"
     instructions: ClassVar[str] = (
-        "✅ 🠒 `yes`\n"
-        "❌ 🠒 `no`\n"
-        "🤷 🠒 `I dont know`\n"
-        "🤔 🠒 `probably`\n"
-        "😕 🠒 `probably not`\n"
+        "✅ 🠒 `Yes`\n"
+        "❌ 🠒 `No`\n"
+        "🤷 🠒 `I Dont Know`\n"
+        "🤔 🠒 `Probably`\n"
+        "😕 🠒 `Probably Not`\n"
     )
 
     def __init__(self) -> None:
@@ -74,6 +74,7 @@ class Akinator:
             ),
             color=self.embed_color,
         )
+        embed.set_thumbnail(url="https://media.discordapp.net/attachments/1010909282906165248/1013094390987751494/images_24.jpg")
         embed.add_field(name="- Question -", value=self.aki.question)
 
         if instructions:
@@ -88,7 +89,7 @@ class Akinator:
         self.guess = self.aki.first_guess
 
         embed = discord.Embed(color=self.embed_color)
-        embed.title = "Character Guesser Engine Results"
+        embed.title = "Akinator Results"
         embed.description = f"Total Questions: `{self.aki.step + 1}`"
 
         embed.add_field(
@@ -97,7 +98,7 @@ class Akinator:
         )
 
         embed.set_image(url=self.guess.absolute_picture_path)
-        embed.set_footer(text="Was I correct?")
+        embed.set_thumbnail(url="https://media.discordapp.net/attachments/1010909282906165248/1013094390987751494/images_24.jpg")
 
         return embed
 
