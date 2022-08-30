@@ -17,11 +17,11 @@ class AkiButton(discord.ui.Button["AkiView"]):
 
 class AkiView(BaseView):
     OPTIONS: ClassVar[dict[str, discord.ButtonStyle]] = {
-        "yes": discord.ButtonStyle.green,
-        "no": discord.ButtonStyle.red,
-        "idk": discord.ButtonStyle.blurple,
-        "probably": discord.ButtonStyle.gray,
-        "probably not": discord.ButtonStyle.gray,
+        "Yes": discord.ButtonStyle.green,
+        "No": discord.ButtonStyle.red,
+        "I Dont Know": discord.ButtonStyle.blurple,
+        "Probably": discord.ButtonStyle.gray,
+        "Probably Not": discord.ButtonStyle.gray,
     }
 
     def __init__(self, game: BetaAkinator, *, timeout: float) -> None:
@@ -34,11 +34,11 @@ class AkiView(BaseView):
             self.add_item(AkiButton(label=label, style=style))
 
         if self.game.back_button:
-            delete = AkiButton(label="back", style=discord.ButtonStyle.red, row=1)
+            delete = AkiButton(label="Back", style=discord.ButtonStyle.red, emoji="🔙", row=1)
             self.add_item(delete)
 
         if self.game.delete_button:
-            delete = AkiButton(label="Cancel", style=discord.ButtonStyle.red, row=1)
+            delete = AkiButton(label="Cancel", style=discord.ButtonStyle.red, emoji="✖️", row=1)
             self.add_item(delete)
 
     async def process_input(
