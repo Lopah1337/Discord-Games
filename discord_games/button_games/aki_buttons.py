@@ -39,7 +39,7 @@ class AkiView(BaseView):
               self.add_item(AkiButton(label=label, style=style, emoji="<:zzexclam:1013831125178777630>"))
             elif label == "Probably":
               self.add_item(AkiButton(label=label, style=style, emoji="🤔"))
-            elif label == "Probably":
+            elif label == "Probably Not":
               self.add_item(AkiButton(label=label, style=style, emoji="🙁"))
 
 
