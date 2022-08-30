@@ -63,7 +63,7 @@ class AkiView(BaseView):
             )
 
         if answer == "cancel":
-            await interaction.message.reply("Session ended", mention_author=True)
+            #await interaction.message.reply("Session ended", mention_author=True)
             self.stop()
             return await interaction.message.delete()
 
