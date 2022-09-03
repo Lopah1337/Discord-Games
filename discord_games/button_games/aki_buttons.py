@@ -81,7 +81,6 @@ class AkiView(BaseView):
             if game.aki.progression >= game.win_at:
                 self.disable_all()
                 embed = await game.win()
-                self.view.stop()
                 self.stop()
             else:
                 embed = game.build_embed(instructions=False)
