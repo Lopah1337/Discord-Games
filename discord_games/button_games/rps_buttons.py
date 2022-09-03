@@ -75,16 +75,24 @@ class RPSButton(discord.ui.Button["RPSView"]):
                         if game.BEATS[game.player1_choice] == game.player2_choice
                         else game.player2
                     )
+                    if game1.player1_choice == game.player2_choice:
+                      game.embed.description = (
+                        f"**Tie!**"
+                        f"\n\n{game.player1.mention} picked {game.player1_choice}."
+                        f"\n{game.player2.mention} also picked {game.player2_choice}."
+                    )
 
-                    game.embed.description = (
+                      self.view.disable_all()
+                      self.view.stop()
+                    else:
+                       game.embed.description = (
                         f"**{who_won.mention} Won!**"
                         f"\n\n{game.player1.mention} chose {game.player1_choice}."
                         f"\n{game.player2.mention} chose {game.player2_choice}."
                     )
 
-                    self.view.disable_all()
-                    self.view.stop()
-
+                       self.view.disable_all()
+                       self.view.stop()
             return await interaction.response.edit_message(
                 embed=game.embed, view=self.view
             )
